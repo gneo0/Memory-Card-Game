@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.App {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 3rem;
+	min-height: 100vh;
+	font-family: 'Single Day', cursive;
+	background-color: #444;
+}
+
+h1 {
+	letter-spacing: 1px;
+	font-size: 2.5rem;
+	color: #fcfcfc;
+}
+
+p {
+	color: #fcfcfc;
+	font-size: 1.5rem;
+}
+
+.game-area {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+}
+
+.card {
+	perspective: 1000px;
+	width: 8rem;
+	height: 12rem;
+	cursor: pointer;
+	list-style: none;
+}
+
+.card-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+	transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+	position: absolute;
+	display: grid;
+	place-content: center;
+	width: 100%;
+	height: 100%;
+	border-radius: 0.6rem;
+	backface-visibility: hidden;
+}
+
+.card-front {
+	border: 10px double black;
+	font-size: 6rem;
+	color: #fcfcfc;
+	background-color: lightslategrey;
+}
+
+.card-back {
+	background-color: #bbb;
+	border: 10px double black;
+	transform: rotateY(180deg);
+}
+
+.card-back img {
+	width: 100%;
+	height: 100%;
+}
+
+button {
+	cursor: pointer;
+	padding: 0.5rem 1.1rem;
+	border: 2px solid #fcfcfc;
+	border-radius: 0.4rem;
+	font-weight: bold;
+	color: #fcfcfc;
+	background-color: lightslategrey;
+}
+
+@media screen and (max-width: 648px) {
+	h1 {
+		font-size: 2rem;
+	}
+	.card {
+		width: 5rem;
+		height: 8rem;
+	}
+}
